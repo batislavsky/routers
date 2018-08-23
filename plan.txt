@@ -1,0 +1,25 @@
+WiveNG - master
+OpenWRT - slave
+                        |PC addr|
+          		+-------+-------+
+			|ip:port|message|
+	     +----------+-------+---+---+
+	     |		  DATAGRAM     |
+	     |			      \|/
++-------------------------+  +-------------------------+ +---------------------+                           
+|    	UDP client        |  |       WiveNG            | |    OpenWRT          |
+|          [PC] 	  |  |      [master]	       | |  [slave]            |
+|     			  |  |                         | |	               |
+|    ARGV[0] = ip:port    |  |  ARGV[0] = bindport     | | ARGV[0] = bindport  |
+|  (WiveNG local address) |  |                         | |                     |	      
+|	                  |  |  ARGV[1] = ip:port      | |                     |             
++-------------------------+  | (OpenWRT local address) | |                     |
+      			     +-------------------------+ +---------------------+
+                                     |                         /|\
+                                     |                          |
+				     |	|PC addr|               |
+				     |	+-------+-------+       |
+				     |	|ip:port|message|       |
+				     +----------+-------+---+---+
+				     		  DATAGRAM     
+				     			      
