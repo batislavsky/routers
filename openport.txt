@@ -1,0 +1,7 @@
+Add: 
+	iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+Delete:
+	iptables -L INPUT --line-numbers
+	iptables -D INPUT [string number]
+
+
